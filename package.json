@@ -1,0 +1,15 @@
+{
+  "name": "zenn-articles",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "description": "Zenn articles workspace (staging for iOS-Lab).",
+  "scripts": {
+    "preview": "zenn preview",
+    "new:article": "zenn new:article",
+    "new:book": "zenn new:book"
+  },
+  "devDependencies": {
+    "zenn-cli": "latest"
+  }
+}
