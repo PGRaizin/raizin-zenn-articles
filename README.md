@@ -19,13 +19,20 @@ npm run preview      # http://localhost:8000 でローカルプレビュー
 npm run new:article  # articles/ に記事雛形を生成
 ```
 
-## 公開フロー
-1. `articles/*.md` の frontmatter `published: false`（下書き）で書く。
-2. ローカルプレビューで確認。
-3. 公開時に `published: true` に変更。
-4. `main` に push → Zenn が自動デプロイ。
+## ブランチ運用（feature → develop → main）
 
-> 事前に一度だけ [Zenn Dashboard → Deploys](https://zenn.dev/dashboard/deploys) でこのリポジトリを連携しておくこと。連携ブランチは `main`。
+- **`feature/*`（下書き）**: 記事ごとに `develop` から派生（例: `feature/gap-08-cow`）。`published: false` で執筆。
+- **`develop`（清書）**: 下書きを統合・推敲する場所。`published: false` のまま。
+- **`main`（公開）**: Zenn 連携ブランチ。**`main` への push だけが自動デプロイ**される。
+
+### 公開フロー
+1. `git switch develop && git switch -c feature/<topic>` で下書き開始（`published: false`）。
+2. `npm run preview` で確認しつつ執筆 → `develop` にマージして清書。
+3. 公開OKになったら `develop` → `main` にマージし、その際に **`published: true`** へ変更。
+4. `main` を push → Zenn が自動デプロイ＝公開。
+
+> 事前に一度だけ [Zenn Dashboard → Deploys](https://zenn.dev/dashboard/deploys) で連携（連携ブランチは `main`）。
+> `develop`/`feature` は Zenn 未連携なので、push しても公開されない（安全に清書できる）。
 
 ## frontmatter 例
 ```yaml
@@ -42,4 +49,4 @@ slug（＝ファイル名）は半角英数・ハイフン/アンダースコア
 ## 記事一覧
 | slug | タイトル | 状態 |
 |---|---|---|
-| [closure-capture-escaping](articles/closure-capture-escaping.md) | Swiftクロージャ捕捉の使い分け（変数/値・@escaping・weak self） | 下書き |
+| [closure-capture-escaping](articles/closure-capture-escaping.md) | Swiftクロージャ捕捉の使い分け（変数/値・@escaping・weak self） | ✅ [公開](https://zenn.dev/pg_raizin/articles/closure-capture-escaping) |
