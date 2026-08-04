@@ -3,7 +3,7 @@ title: "Swiftクロージャ捕捉の使い分け（変数/値・@escaping・wea
 emoji: "🧩"
 type: "tech"
 topics: ["swift", "ios", "arc", "closure"]
-published: false
+published: true
 ---
 
 クロージャまわりで迷いやすい **「変数捕捉 / 値捕捉」「`@escaping`」「`[weak self]`」** の3軸を、実務で判断できる形に整理します。最後に判断フローと、動くコードでの検証結果を載せます。
@@ -22,11 +22,11 @@ published: false
 
 ```swift
 var x = 1
-let byRef = { x }          // 変数を捕捉
-let byVal = { [x] in x }   // 生成時点の値を捕捉
+let latest   = { x }          // 変数を捕捉：常に最新
+let snapshot = { [x] in x }   // 生成時点の値を固定
 x = 2
-byRef()  // → 2  （後の変更が見える）
-byVal()  // → 1  （作った瞬間で固定）
+latest()    // → 2  （後の変更が見える）
+snapshot()  // → 1  （作った瞬間で固定）
 ```
 
 - 最新値・共有状態を読みたい → **変数捕捉（既定）**
@@ -53,7 +53,7 @@ var handler: (() -> Void)?   // 保存も escaping
 self が escaping クロージャを保存し、そのクロージャが self を強参照すると、相互に手放せず解放されません（循環参照）。
 
 ```swift
-final class ViewModel {
+final class LeakyCounter {
     var onChange: (() -> Void)?
     init() {
         onChange = { self.update() }        // ❌ self ⇄ closure の循環
@@ -62,11 +62,17 @@ final class ViewModel {
 }
 ```
 
+`[weak self]` で循環を断つ：
+
 ```swift
-init() {
-    onChange = { [weak self] in
-        self?.update()                      // ✅ 循環を断つ
+final class SafeCounter {
+    var onChange: (() -> Void)?
+    init() {
+        onChange = { [weak self] in
+            self?.update()                  // ✅ 循環を断つ
+        }
     }
+    func update() {}
 }
 ```
 
