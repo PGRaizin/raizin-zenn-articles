@@ -50,3 +50,4 @@ slug（＝ファイル名）は半角英数・ハイフン/アンダースコア
 | slug | タイトル | 状態 |
 |---|---|---|
 | [closure-capture-escaping](articles/closure-capture-escaping.md) | Swiftクロージャ捕捉の使い分け（変数/値・@escaping・weak self） | ✅ [公開](https://zenn.dev/pg_raizin/articles/closure-capture-escaping) |
+| [mutating-copy-on-write](articles/mutating-copy-on-write.md) | Swiftのmutatingとcopy-on-writeを、自作CoWで腹落ちさせる | 下書き（feature/article-cow） |
