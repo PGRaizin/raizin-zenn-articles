@@ -3,7 +3,7 @@ title: "Swiftのmutatingとcopy-on-writeを、自作CoWで腹落ちさせる"
 emoji: "📦"
 type: "tech"
 topics: ["swift", "ios", "copyonwrite", "performance"]
-published: false
+published: true
 ---
 
 「値型なのに、なぜコピーのコストを気にせず配れるのか」。その裏側にある **`mutating`** と **copy-on-write（CoW）** を、最小の自作CoW型で確認します。最後に **実務で自作CoWを書くのはどんな時か** までまとめます。
