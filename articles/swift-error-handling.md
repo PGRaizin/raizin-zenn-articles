@@ -3,7 +3,7 @@ title: "Swiftのエラー処理を使い分ける（try? / try! / Result / typed
 emoji: "🧯"
 type: "tech"
 topics: ["swift", "ios", "errorhandling", "swift6"]
-published: false
+published: true
 ---
 
 `throws` / `try` / `try?` / `try!` / `Result`、そして Swift 6.2 の **typed throws**。似た道具が多くて迷いがちですが、**「今処理する／理由を捨てる／持ち運ぶ／型で縛る」**で選べば一意に決まります。
