@@ -3,7 +3,7 @@ title: "Swiftのclassを整理する（継承・override・多態・final・init
 emoji: "🐶"
 type: "tech"
 topics: ["swift", "ios", "oop", "class"]
-published: false
+published: true
 ---
 
 Swift は「まず struct、必要な時だけ class」。
