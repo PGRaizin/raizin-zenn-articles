@@ -6,7 +6,7 @@ topics: ["swift", "ios", "errorhandling", "swift6"]
 published: true
 ---
 
-`throws` / `try` / `try?` / `try!` / `Result`、そして Swift 6.2 の **typed throws**。似た道具が多くて迷いがちですが、**「今処理する／理由を捨てる／持ち運ぶ／型で縛る」**で選べば一意に決まります。
+`throws` / `try` / `try?` / `try!` / `Result`、そして Swift 6.2 の **typed throws**。似た道具が多くて迷いがちですが、**「今処理する／理由を捨てる／持ち運ぶ／型で縛る」** で選べば一意に決まります。
 
 ## 題材
 
