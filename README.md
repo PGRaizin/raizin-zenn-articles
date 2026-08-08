@@ -51,4 +51,5 @@ slug（＝ファイル名）は半角英数・ハイフン/アンダースコア
 |---|---|---|
 | [closure-capture-escaping](articles/closure-capture-escaping.md) | Swiftクロージャ捕捉の使い分け（変数/値・@escaping・weak self） | ✅ [公開](https://zenn.dev/pg_raizin/articles/closure-capture-escaping) |
 | [mutating-copy-on-write](articles/mutating-copy-on-write.md) | Swiftのmutatingとcopy-on-writeを、自作CoWで腹落ちさせる | ✅ [公開](https://zenn.dev/pg_raizin/articles/mutating-copy-on-write) |
-| [swift-error-handling](articles/swift-error-handling.md) | Swiftのエラー処理を使い分ける（try?/try!/Result/typed throws） | 下書き（feature/article-errors） |
+| [swift-error-handling](articles/swift-error-handling.md) | Swiftのエラー処理を使い分ける（try?/try!/Result/typed throws） | ✅ [公開](https://zenn.dev/pg_raizin/articles/swift-error-handling) |
+| [swift-class-inheritance](articles/swift-class-inheritance.md) | Swiftのclassを整理する（継承・override・多態・final・init） | 下書き（feature/article-class） |
